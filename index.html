@@ -1584,6 +1584,7 @@ h2{
       b.setAttribute("aria-pressed", j === i ? "true" : "false");
     });
     lionCap.innerHTML = t.dataset.cap || "";
+    if(lionStage) lionStage.setAttribute("aria-label", "사자 키링 사진 크게 보기 · " + (t.dataset.label || ""));
   }
   lionThumbs.forEach(function(b){
     b.addEventListener("click", function(){ lionShow(parseInt(b.dataset.i, 10) || 0); });
