@@ -468,6 +468,44 @@ h2{
 .visit li b{color:var(--gold-l);font-weight:600}
 @media(min-width:880px){.c-grid{grid-template-columns:1.1fr .9fr}}
 
+/* ── 방명록 ─────────────────────────────── */
+.gb{background:linear-gradient(180deg,#F4EEE4,#FFFDF9);border-top:1px solid var(--line)}
+.gb-stats{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px 26px;padding:15px 0 17px;border-top:1px solid var(--line-gold);border-bottom:1px solid var(--line-gold);margin-bottom:clamp(26px,3.4vw,42px)}
+.gb-stats-label{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-d);font-weight:700}
+.gb-stats-nums{display:flex;align-items:baseline;gap:16px;margin-left:auto}
+.gb-stats-nums > span{display:flex;align-items:baseline;gap:7px}
+.gb-stats-nums b{font-family:var(--serif);font-size:clamp(21px,2.5vw,27px);font-weight:600;color:var(--navy);line-height:1;font-variant-numeric:tabular-nums}
+.gb-stats-nums i{font-style:normal;font-size:9.5px;letter-spacing:.22em;color:var(--muted-l)}
+.gb-stats-nums .dot{width:1px;height:20px;background:var(--line-gold)}
+.gb-grid{display:grid;gap:clamp(26px,3.6vw,54px)}
+.gb-form{background:var(--paper);border:1px solid rgba(27,38,59,.1);border-radius:6px;padding:clamp(22px,2.8vw,32px);position:relative}
+.gb-form::before{content:"";position:absolute;inset:8px;border:1px solid rgba(197,160,89,.2);border-radius:3px;pointer-events:none}
+.gb-form h3{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--navy)}
+.gb-intro{font-size:12.5px;color:var(--muted);margin-top:7px;line-height:1.7}
+.gb-field{display:block;margin-top:16px}
+.gb-field > span{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-d);font-weight:700;margin-bottom:7px}
+.gb-field em{font-style:normal;letter-spacing:.02em;color:var(--muted-l);font-weight:600;text-transform:none;margin-left:4px}
+.gb-field input,.gb-field textarea{width:100%;background:var(--ivory);border:1px solid rgba(27,38,59,.16);border-radius:6px;padding:11px 13px;font-family:var(--sans);font-size:14px;color:#2E2A24;line-height:1.7}
+.gb-field textarea{resize:vertical;min-height:104px}
+.gb-field input:focus,.gb-field textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+.gb-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
+.gb-foot{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin-top:18px}
+.gb-note{font-size:11px;color:var(--muted-l);line-height:1.65;flex:1;min-width:170px}
+.gb-list-wrap{min-width:0}
+.gb-list{display:grid;gap:11px}
+.gb-item{background:var(--paper);border:1px solid rgba(27,38,59,.08);border-left:2px solid var(--line-gold);border-radius:4px;padding:15px 18px;transition:border-color .3s,transform .3s}
+.gb-item:hover{border-left-color:var(--gold);transform:translateY(-1px)}
+.gb-item-top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.gb-item-name{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--navy);line-height:1.4}
+.gb-item-date{font-size:10.5px;letter-spacing:.14em;color:var(--gold-d);margin-left:auto}
+.gb-item-msg{margin-top:7px;font-size:13.5px;line-height:1.85;color:#4A443B;white-space:pre-wrap;overflow-wrap:anywhere}
+.gb-empty,.gb-load{border:1px dashed var(--line-gold);border-radius:4px;padding:26px 20px;text-align:center;font-size:13px;color:var(--muted);background:rgba(255,253,249,.6);line-height:1.7}
+.gb-more{display:block;margin:14px auto 0;font-size:11.5px;letter-spacing:.14em;color:var(--gold-d);border-bottom:1px solid var(--line-gold);padding-bottom:3px}
+.gb-more[hidden]{display:none}
+.gb-more:hover{color:var(--gold)}
+@media(min-width:900px){.gb-grid{grid-template-columns:.92fr 1.08fr;align-items:start}}
+@media(min-width:1024px) and (max-width:1200px){.nav{gap:20px}.nav a{letter-spacing:.14em}}
+
 /* ── 푸터 ───────────────────────────────── */
 .ftr{background:var(--navy-d);color:rgba(237,228,211,.66);padding:clamp(40px,5vw,64px) 0 calc(78px + env(safe-area-inset-bottom))}
 .ftr-in{display:grid;gap:22px}
@@ -477,6 +515,8 @@ h2{
 .ftr-nav{display:flex;flex-wrap:wrap;gap:18px}
 .ftr-nav a{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,228,211,.7)}
 .ftr-nav a:hover{color:var(--gold-l)}
+.ftr-visit{font-size:11.5px;letter-spacing:.06em;color:rgba(237,228,211,.5);margin-top:4px}
+.ftr-visit b{font-family:var(--serif);font-size:13px;font-weight:600;color:var(--gold-l)}
 .ftr .copy{font-size:11px;letter-spacing:.04em;color:rgba(237,228,211,.44);padding-top:18px;border-top:1px solid rgba(237,228,211,.12)}
 @media(min-width:820px){
   .ftr-in{grid-template-columns:1fr auto;align-items:start}
@@ -570,6 +610,7 @@ h2{
       <a href="#books">Books</a>
       <a href="#boutique">Boutique</a>
       <a href="#journal">Journal</a>
+      <a href="#guestbook">Guestbook</a>
       <a href="#contact" class="nav-cta">문의하기</a>
     </nav>
     <button class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="menu">
@@ -587,6 +628,7 @@ h2{
     <a href="#books">책과 카드 <i>BOOKS</i></a>
     <a href="#boutique">부티크 <i>BOUTIQUE</i></a>
     <a href="#journal">저널 <i>JOURNAL</i></a>
+    <a href="#guestbook">방명록 <i>GUESTBOOK</i></a>
     <a href="#contact">연락 <i>CONTACT</i></a>
   </nav>
   <p class="menu-foot">부티크 Her 비브르 사비 · 010-4305-3140</p>
@@ -1327,6 +1369,53 @@ h2{
   </div>
 </section>
 
+<!-- ── 06 방명록 ── -->
+<section class="sec gb" id="guestbook">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">06 — Guestbook</p>
+      <h2>방명록</h2>
+      <p class="lede">로그인 없이, 이름과 한마디만 남기고 가세요. 남겨 주신 글은 이 자리에 그대로 걸립니다. 그림 이야기, 옷 이야기, 그냥 들른 인사 모두 반갑습니다.</p>
+    </div>
+
+    <div class="gb-stats reveal">
+      <p class="gb-stats-label">다녀가신 발걸음</p>
+      <p class="gb-stats-nums">
+        <span><b id="gbToday">–</b><i>TODAY</i></span>
+        <span class="dot" aria-hidden="true"></span>
+        <span><b id="gbTotal">–</b><i>TOTAL</i></span>
+      </p>
+    </div>
+
+    <div class="gb-grid">
+      <form class="gb-form reveal" id="gbForm" autocomplete="off" novalidate>
+        <h3>한마디 남기기</h3>
+        <p class="gb-intro">이름은 비워 두셔도 됩니다. 남겨 주신 글은 바로 옆에 보입니다.</p>
+        <label class="gb-field" for="gbName">
+          <span>이름 · 별명<em>선택</em></span>
+          <input id="gbName" name="name" type="text" maxlength="20" placeholder="예) 통영에서 온 손님">
+        </label>
+        <label class="gb-field" for="gbMsg">
+          <span>한마디<em>300자까지</em></span>
+          <textarea id="gbMsg" name="msg" maxlength="300" rows="4" placeholder="이 방에 다녀간 소감을 남겨 주세요."></textarea>
+        </label>
+        <input class="gb-hp" id="gbHp" type="text" tabindex="-1" aria-hidden="true">
+        <div class="gb-foot">
+          <button class="btn btn-gold" type="submit" id="gbSend">방명록 남기기</button>
+          <span class="gb-note">이름과 한마디는 이 페이지에 공개됩니다. 광고·비방 글은 예고 없이 지울 수 있습니다.</span>
+        </div>
+      </form>
+
+      <div class="gb-list-wrap reveal">
+        <div class="gb-list" id="gbList" aria-live="polite">
+          <p class="gb-load">방명록을 불러오는 중입니다…</p>
+        </div>
+        <button class="gb-more" id="gbMore" type="button" hidden>이전 방명록 더 보기</button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── 연락 ── -->
 <section class="sec contact" id="contact">
   <div class="wrap c-grid">
@@ -1373,8 +1462,10 @@ h2{
       <a href="#books">Books</a>
       <a href="#boutique">Boutique</a>
       <a href="#journal">Journal</a>
+      <a href="#guestbook">Guestbook</a>
       <a href="#contact">Contact</a>
     </nav>
+    <p class="ftr-visit">오늘 <b id="ftrToday">–</b> · 지금까지 <b id="ftrTotal">–</b> 걸음이 이 방을 지나갔습니다.</p>
     <p class="copy">© 2026 Her 비브르 사비 · 정연순. All rights reserved. 이 페이지의 그림, 사진, 글의 저작권은 정연순에게 있습니다.</p>
   </div>
 </footer>
@@ -1465,7 +1556,7 @@ h2{
   window.addEventListener("scroll", onScroll, {passive:true});
 
   /* ── 스크롤 스파이 ── */
-  var spyMap = ["home","story","gallery","books","boutique","journal","contact"];
+  var spyMap = ["home","story","gallery","books","boutique","journal","guestbook","contact"];
   var spyLinks = $$("[data-spy]");
   function spy(y){
     var cur = "home";
@@ -1805,6 +1896,149 @@ h2{
   });
 
   onScroll();
+})();
+</script>
+
+<script>
+/* ── 방문자 수 · 방명록 (Google Apps Script 웹 앱) ─────────────── */
+(function(){
+  "use strict";
+  var API = "https://script.google.com/macros/s/AKfycbw1Mmad0ib8ptBWE58Y--POy_UxQsmP0aVAx00rPsmLekz-R02uYtuwEhaQ7Q9xAePL/exec";
+  var PER = 6;
+  function $(id){ return document.getElementById(id); }
+  var listEl = $("gbList"), moreBtn = $("gbMore"), form = $("gbForm"), sendBtn = $("gbSend");
+  var nameEl = $("gbName"), msgEl = $("gbMsg"), hpEl = $("gbHp"), toastEl = $("toast");
+  var totalEl = $("gbTotal"), todayEl = $("gbToday"), ftrTotal = $("ftrTotal"), ftrToday = $("ftrToday");
+  var entries = [], shown = 0, busy = false, tT;
+
+  function showToast(msg){
+    if(!toastEl) return;
+    toastEl.textContent = msg; toastEl.classList.add("show");
+    clearTimeout(tT); tT = setTimeout(function(){ toastEl.classList.remove("show"); }, 3200);
+  }
+  function fmt(n){ return (typeof n === "number" ? n : 0).toLocaleString("ko-KR"); }
+  function when(t){
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(t || ""));
+    return m ? m[1] + ". " + (+m[2]) + ". " + (+m[3]) : "";
+  }
+  function stats(d){
+    if(!d) return;
+    if(typeof d.total === "number"){
+      if(totalEl) totalEl.textContent = fmt(d.total);
+      if(ftrTotal) ftrTotal.textContent = fmt(d.total);
+    }
+    if(typeof d.today === "number"){
+      if(todayEl) todayEl.textContent = fmt(d.today);
+      if(ftrToday) ftrToday.textContent = fmt(d.today);
+    }
+  }
+  function jsonp(params){
+    return new Promise(function(res, rej){
+      var cb = "gbcb" + Math.random().toString(36).slice(2);
+      var s = document.createElement("script"), done = false, timer;
+      function end(ok, val){
+        if(done) return; done = true; clearTimeout(timer);
+        try { delete window[cb]; } catch(e) { window[cb] = undefined; }
+        if(s.parentNode) s.parentNode.removeChild(s);
+        ok ? res(val) : rej(val);
+      }
+      timer = setTimeout(function(){ end(false, new Error("timeout")); }, 12000);
+      window[cb] = function(d){ end(true, d); };
+      s.onerror = function(){ end(false, new Error("network")); };
+      var q = Object.keys(params || {}).map(function(k){ return encodeURIComponent(k) + "=" + encodeURIComponent(params[k]); }).join("&");
+      s.src = API + (API.indexOf("?") > -1 ? "&" : "?") + "callback=" + cb + (q ? "&" + q : "");
+      document.head.appendChild(s);
+    });
+  }
+  function post(data){
+    return fetch(API, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(data),
+      redirect: "follow"
+    }).then(function(r){ return r.text(); }).then(function(t){
+      try { return JSON.parse(t); } catch(e) { return { ok: false, error: "bad response" }; }
+    });
+  }
+  function itemNode(e){
+    var box = document.createElement("div"); box.className = "gb-item";
+    var top = document.createElement("div"); top.className = "gb-item-top";
+    var nm = document.createElement("span"); nm.className = "gb-item-name"; nm.textContent = e.name || "이름 없는 손님";
+    var dt = document.createElement("span"); dt.className = "gb-item-date"; dt.textContent = when(e.t);
+    top.appendChild(nm); top.appendChild(dt);
+    var msg = document.createElement("p"); msg.className = "gb-item-msg"; msg.textContent = e.msg || "";
+    box.appendChild(top); box.appendChild(msg);
+    return box;
+  }
+  function draw(){
+    if(!listEl) return;
+    listEl.textContent = "";
+    if(!entries.length){
+      var em = document.createElement("p"); em.className = "gb-empty";
+      em.textContent = "아직 첫 번째 한마디가 없습니다. 첫 글을 남겨 주세요.";
+      listEl.appendChild(em);
+      if(moreBtn) moreBtn.hidden = true;
+      return;
+    }
+    entries.slice(0, shown).forEach(function(e){ listEl.appendChild(itemNode(e)); });
+    if(moreBtn) moreBtn.hidden = shown >= entries.length;
+  }
+  function fail(){
+    if(!listEl) return;
+    listEl.textContent = "";
+    var p = document.createElement("p"); p.className = "gb-load";
+    p.textContent = "방명록을 불러오지 못했습니다. 잠시 뒤 새로고침해 주세요.";
+    listEl.appendChild(p);
+    if(moreBtn) moreBtn.hidden = true;
+  }
+  function load(){
+    return jsonp({ limit: 30 }).then(function(d){
+      if(d && d.ok){
+        entries = d.entries || [];
+        shown = Math.min(Math.max(shown, PER), Math.max(entries.length, PER));
+        stats(d); draw();
+      } else { fail(); }
+    }, fail);
+  }
+
+  if(form){
+    form.addEventListener("submit", function(ev){
+      ev.preventDefault();
+      if(busy) return;
+      var name = (nameEl.value || "").trim().slice(0, 20);
+      var msg = (msgEl.value || "").trim();
+      if(msg.length < 2){ showToast("한마디를 두 글자 이상 남겨 주세요."); msgEl.focus(); return; }
+      var last = 0;
+      try { last = +(localStorage.getItem("hbv_gb_last") || 0); } catch(e) {}
+      if(Date.now() - last < 30000){ showToast("방금 남기셨습니다. 잠시 뒤 다시 남겨 주세요."); return; }
+      busy = true; sendBtn.disabled = true;
+      var label = sendBtn.textContent; sendBtn.textContent = "남기는 중…";
+      post({ type: "guest", name: name, msg: msg, hp: (hpEl && hpEl.value) || "" })
+        .then(function(d){
+          if(!d || !d.ok){
+            showToast((d && d.error) || "남기지 못했습니다. 잠시 뒤 다시 시도해 주세요.");
+            return null;
+          }
+          try { localStorage.setItem("hbv_gb_last", String(Date.now())); } catch(e) {}
+          msgEl.value = ""; nameEl.value = "";
+          showToast("방명록을 남겼습니다. 고맙습니다.");
+          shown = Math.max(shown, PER);
+          return load();
+        })
+        .catch(function(){ showToast("연결이 잠시 끊겼습니다. 조금 뒤 다시 남겨 주세요."); })
+        .then(function(){ busy = false; sendBtn.disabled = false; sendBtn.textContent = label; });
+    });
+  }
+  if(moreBtn){
+    moreBtn.addEventListener("click", function(){ shown += PER; draw(); });
+  }
+
+  var first = false;
+  try {
+    if(!sessionStorage.getItem("hbv_visit")){ sessionStorage.setItem("hbv_visit", "1"); first = true; }
+  } catch(e) {}
+  var pre = first ? post({ type: "visit" }).catch(function(){ return null; }) : Promise.resolve(null);
+  pre.then(function(){ return load(); });
 })();
 </script>
 </body>
