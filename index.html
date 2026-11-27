@@ -544,6 +544,26 @@ h2{
 .music-note{margin-top:20px;font-size:13.5px;line-height:1.95;color:rgba(237,228,211,.78);max-width:58ch}
 .music-credit{margin-top:14px;padding-top:13px;border-top:1px solid rgba(227,203,150,.28);font-size:11px;letter-spacing:.1em;color:rgba(227,203,150,.72)}
 @media(min-width:820px){.music-card{grid-template-columns:auto minmax(0,1fr)}}
+/* ── 노래 목록 ───────────────────────────── */
+.tracklist{display:grid;gap:10px;margin-top:16px}
+.track{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px;width:100%;text-align:left;padding:13px 18px;border:1px solid var(--line-gold);border-radius:999px;background:rgba(255,253,249,.78);color:#3A342B;transition:border-color .3s,background .3s,box-shadow .3s}
+.track:hover{border-color:var(--gold);background:#FFFDF9}
+.tr-no{font-family:var(--serif);font-size:11px;letter-spacing:.16em;color:var(--gold-d)}
+.tr-name{font-size:14.5px;letter-spacing:.02em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tr-meta{font-size:11px;letter-spacing:.1em;color:var(--muted)}
+.track.is-on{border-color:var(--gold);background:#FFF7E6;box-shadow:0 0 0 1px rgba(197,160,89,.3),0 16px 28px -24px rgba(120,90,30,.55)}
+.track.is-on .tr-no,.track.is-on .tr-name{color:var(--gold-d)}
+.track.is-on .tr-meta::before{content:"●";font-size:7px;vertical-align:middle;margin-right:6px;color:var(--gold)}
+
+/* ── 시화집 영상 ─────────────────────────── */
+.film{background:radial-gradient(66% 50% at 12% 0%,rgba(197,160,89,.12),transparent 60%),linear-gradient(180deg,#FFFDF9,#F6F0E6 60%,#FFFDF9)}
+.film-card{position:relative;background:linear-gradient(135deg,#233148,#121A29 76%);border-radius:6px;padding:clamp(16px,2.6vw,30px);box-shadow:0 34px 60px -46px rgba(17,26,43,.9)}
+.film-card::before{content:"";position:absolute;inset:11px;border:1px solid rgba(197,160,89,.24);border-radius:3px;pointer-events:none}
+.film-frame{position:relative;z-index:1;border-radius:12px;overflow:hidden;background:#080C14}
+.film-frame video{display:block;width:100%;height:auto;max-height:74vh;border-radius:12px;background:#080C14}
+.film-meta{position:relative;z-index:1;display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-top:16px;font-size:11px;letter-spacing:.1em;color:rgba(227,203,150,.84)}
+.film-meta span{padding:5px 11px;border:1px solid rgba(227,203,150,.32);border-radius:999px}
+.film-note{position:relative;z-index:1;margin-top:14px;font-size:13.5px;line-height:1.95;color:rgba(237,228,211,.78);max-width:64ch}
 
 @media(min-width:1024px) and (max-width:1200px){.nav{gap:20px}.nav a{letter-spacing:.14em}}
 
@@ -1119,8 +1139,8 @@ h2{
   <div class="wrap">
     <div class="sec-head reveal">
       <p class="eyebrow">04 — Music</p>
-      <h2>나에게도 꽃이 피는 날</h2>
-      <p class="lede">제시 언니가 직접 만들고 다듬은 첫 자작 힐링 발라드입니다. 지친 날에 조용히 곁에 두고 듣는 노래 — 이 자리에서 바로 들어 보세요.</p>
+      <h2>부르고 싶은 노래들</h2>
+      <p class="lede">제시 언니가 직접 만들고 다듬은 노래 세 곡입니다. 지친 날 곁에 두고 듣는 노래 — 아래에서 곡을 골라 이 자리에서 바로 들어 보세요.</p>
     </div>
 
     <div class="music-card reveal">
@@ -1128,17 +1148,74 @@ h2{
         <span class="disc"><span class="disc-note">♪</span></span>
       </div>
       <div class="music-body">
-        <span class="music-tag">First Song · 자작곡</span>
-        <h3>나에게도 꽃이 피는 날</h3>
-        <p class="music-sub">힐링 발라드 · 2분 55초 · 보컬 · 피아노</p>
+        <span class="music-tag" id="trackTag">First Song · 자작곡</span>
+        <h3 id="trackTitle">나에게도 꽃이 피는 날</h3>
+        <p class="music-sub" id="trackSub">힐링 발라드 · 2분 55초 · 보컬 · 피아노</p>
         <div class="music-player">
           <audio id="songPlayer" controls preload="metadata" src="audio/naege-do-kkochi-pineun-nal.mp3">
             브라우저가 오디오 재생을 지원하지 않습니다. <a href="audio/naege-do-kkochi-pineun-nal.mp3">노래 파일 바로 열기</a>
           </audio>
         </div>
-        <p class="music-note">잘 흘러가지 않는 날에도 나에게 꽃이 피는 날이 온다고 믿고 싶어 만든 노래입니다. 가사와 곡의 방향은 제가 정하고, AI 작곡 도구와 함께 한 소절씩 다듬어 완성했습니다.</p>
+        <p class="music-note" id="trackNote">잘 흘러가지 않는 날에도 나에게 꽃이 피는 날이 온다고 믿고 싶어 만든 노래입니다. 가사와 곡의 방향은 제가 정하고, AI 작곡 도구와 함께 한 소절씩 다듬어 완성했습니다.</p>
         <p class="music-credit">노래 · 정연순 (제시 언니) · 2026</p>
       </div>
+    </div>
+
+    <div class="tracklist reveal" role="group" aria-label="노래 목록">
+      <button class="track is-on" type="button"
+        data-src="audio/naege-do-kkochi-pineun-nal.mp3"
+        data-tag="First Song · 자작곡"
+        data-title="나에게도 꽃이 피는 날"
+        data-sub="힐링 발라드 · 2분 55초 · 보컬 · 피아노"
+        data-note="잘 흘러가지 않는 날에도 나에게 꽃이 피는 날이 온다고 믿고 싶어 만든 노래입니다. 가사와 곡의 방향은 제가 정하고, AI 작곡 도구와 함께 한 소절씩 다듬어 완성했습니다.">
+        <span class="tr-no">01</span>
+        <span class="tr-name">나에게도 꽃이 피는 날</span>
+        <span class="tr-meta">2:55</span>
+      </button>
+      <button class="track" type="button"
+        data-src="audio/haenahaeng-geunyeodeul.mp3"
+        data-tag="Second Song · 자작곡"
+        data-title="해나행 그녀들"
+        data-sub="한국어 발라드 · 6분 11초 · 여성 보컬 · 피아노 · 스트링"
+        data-note="병실에서 만나 가족처럼 지내 온 사람들에게 건네는 노래입니다. 서로의 하루를 견디며 웃음과 눈물을 나눈 시간을 담았습니다.">
+        <span class="tr-no">02</span>
+        <span class="tr-name">해나행 그녀들</span>
+        <span class="tr-meta">6:11</span>
+      </button>
+      <button class="track" type="button"
+        data-src="audio/yellow-miracle.mp3"
+        data-tag="Third Song · 자작곡"
+        data-title="옐로우의 기적"
+        data-sub="K-pop 스타일 · 1분 39초 · 보컬"
+        data-note="밝고 경쾌한 K-pop 스타일로 만든 짧은 노래입니다.">
+        <span class="tr-no">03</span>
+        <span class="tr-name">옐로우의 기적</span>
+        <span class="tr-meta">1:39</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ── 특별 영상 ── -->
+<section class="sec film" id="film">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Special Film</p>
+      <h2>〈슬기로운 간병생활 714호〉 시화집 영상</h2>
+      <p class="lede">병실에서 함께 지낸 사람들의 사진과 시를 모아 만든 영상입니다. 함께한 분들의 동의를 받아 이 자리에 올립니다.</p>
+    </div>
+
+    <div class="film-card reveal">
+      <div class="film-frame">
+        <video id="poetryFilm" controls playsinline preload="metadata" poster="video/714-poetry-book-poster.jpg" style="width:100%; border-radius:12px;">
+          <source src="video/714-poetry-book-ver1.mp4" type="video/mp4">
+          브라우저가 동영상 재생을 지원하지 않습니다. <a href="video/714-poetry-book-ver1.mp4">영상 파일 바로 열기</a>
+        </video>
+      </div>
+      <div class="film-meta">
+        <span>시화집 영상</span><span>2분 56초</span><span>사진과 글 · 714호 보호자 모임</span><span>제작 · 제시 언니</span>
+      </div>
+      <p class="film-note">간병의 시간을 함께 버틴 사람들이 서로에게 건네는 사진과 시를 한 편의 영상으로 묶었습니다. 영상에 나오는 분들은 모두 촬영과 공개에 동의해 주셨습니다.</p>
     </div>
   </div>
 </section>
@@ -1684,13 +1761,43 @@ h2{
     $$(".reveal").forEach(function(el){ el.classList.add("in"); });
   }
 
-  /* ── 노래 재생 표시 ── */
+  /* ── 노래 재생 표시 · 곡 선택 ── */
   var song = $("#songPlayer"), musicCard = $(".music-card");
+  var tracks = $$(".track");
+  var tTitle = $("#trackTitle"), tSub = $("#trackSub"), tTag = $("#trackTag"), tNote = $("#trackNote");
+  function markTrack(btn){
+    tracks.forEach(function(b){ b.classList.toggle("is-on", b === btn); });
+  }
+  function playTrack(btn, autoplay){
+    if(!btn || !song) return;
+    markTrack(btn);
+    var src = btn.getAttribute("data-src");
+    if(song.getAttribute("src") !== src){
+      song.setAttribute("src", src);
+      song.load();
+    }
+    if(tTitle) tTitle.textContent = btn.getAttribute("data-title") || "";
+    if(tSub) tSub.textContent = btn.getAttribute("data-sub") || "";
+    if(tTag) tTag.textContent = btn.getAttribute("data-tag") || "";
+    if(tNote) tNote.textContent = btn.getAttribute("data-note") || "";
+    if(autoplay){ var pr = song.play(); if(pr && pr.catch) pr.catch(function(){}); }
+  }
   if(song && musicCard){
     song.addEventListener("play", function(){ musicCard.classList.add("playing"); });
     song.addEventListener("pause", function(){ musicCard.classList.remove("playing"); });
-    song.addEventListener("ended", function(){ musicCard.classList.remove("playing"); });
+    song.addEventListener("ended", function(){
+      musicCard.classList.remove("playing");
+      var on = tracks.filter(function(b){ return b.classList.contains("is-on"); })[0];
+      var idx = tracks.indexOf(on);
+      if(idx > -1 && tracks[idx+1]) playTrack(tracks[idx+1], true);
+    });
   }
+  tracks.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      if(btn.classList.contains("is-on") && song && !song.paused){ song.pause(); return; }
+      playTrack(btn, true);
+    });
+  });
 
   /* ── 토스트 ── */
   var toast = $("#toast"), toastT;
